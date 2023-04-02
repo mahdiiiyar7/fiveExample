@@ -1,0 +1,41 @@
+.active {
+  background-color: brown;
+
+  a {
+    color: white !important;
+  }
+}
+
+.topHeader {
+  width: 100%;
+  margin-bottom: 3rem;
+
+  ul {
+    width: 100%;
+    background-color: chocolate;
+    display: flex;
+    flex-direction: row;
+
+
+    li {
+      padding: 15px 30px;
+      list-style-type: none;
+
+      &:hover {
+        height: 100%;
+        background-color: brown;
+
+        a {
+          display: inline-block;
+          color: white;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

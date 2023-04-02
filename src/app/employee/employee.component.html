@@ -1,0 +1,46 @@
+<div class="w-100 container-fluid">
+    <div class="w-100 d-flex flex-row justify-content-between gap-3">
+        <div class="w-50 p-5">
+            <div class="card-header mb-5">Submit Your Information:</div>
+            <div class="card-body">
+                <form #formInfo="ngForm" (ngSubmit)="formInfo.form.valid && save(formInfo.value)" novalidate>
+                    <div class="mb-3">
+                      <label for="exampleInputFirstName1" class="form-label">First Name:</label>
+                      <input type="text" class="form-control" id="exampleInputFirstName1" name="firstName" ngModel #firstName="ngModel" [ngClass]="{'is-invalid': formInfo.submitted && firstName.invalid}" required>
+                      <div *ngIf="formInfo.submitted && firstName.invalid">
+                        <div class="is-invalid" *ngIf="firstName.errors">First Name is required</div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputLastName1" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="exampleInputLastName1" name="lastName" ngModel #lastName="ngModel" [ngClass]="{'is-invalid': formInfo.submitted && lastName.invalid}" required>
+                        <div *ngIf="formInfo.submitted && lastName.invalid">
+                            <div class="is-invalid" *ngIf="lastName.errors">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" ngModel #email="ngModel" [ngClass]="{'is-invalid': formInfo.submitted && email.invalid}" required email>
+                        <div *ngIf="formInfo.submitted && email.invalid">
+                            <div class="is-invalid" *ngIf="email.errors">Write Your Correct Email</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputGrade1" class="form-label">Grade:</label>
+                        <select id="exampleInputGrade1" class="form-select" name="gradeId" ngModel #gradeId="ngModel" [ngClass]="{'is-invalid': formInfo.submitted && gradeId.invalid}" required>
+                            <option disabled>Choose</option>
+                            <option [value]="item.id" *ngFor="let item of grades">{{ item.title }}</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+        <div class="w-50 d-flex flex-column justify-content-center p-5">
+            <label class="mb-5">First Name: {{ employee.firstName }}</label>
+            <label class="mb-5">Last Name: {{ employee.lastName }}</label>
+            <label class="mb-5">Email: {{ employee.email }}</label>
+            <label class="mb-5">Grade: {{ employee.gradeTitle }}</label>
+        </div>
+    </div>
+</div>

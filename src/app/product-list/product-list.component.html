@@ -1,0 +1,5 @@
+<p>product-list works!</p>
+
+<div class="box-container">
+    <app-product-detail-list *ngFor="let product of products" [mahdiyar]="product" (removeItem)="removeProductId($event)"></app-product-detail-list>
+</div>

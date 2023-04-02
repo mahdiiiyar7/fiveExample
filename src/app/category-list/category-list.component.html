@@ -1,0 +1,24 @@
+<h1>Category Lists:</h1>
+
+<div class="categoryListAll">
+    <div class="listAllCategory">
+        <h3>List Category From Component:</h3>
+        <ul>
+            <li *ngFor="let item of categoryList">{{ item.categoryName }}</li>
+        </ul>
+    </div>
+
+    <div class="listAllCategory">
+        <h3>List Category From Service:</h3>
+        <ul>
+            <li *ngFor="let item of categoryListFromService">{{ item.categoryName }}</li>
+        </ul>
+    </div>
+</div>
+
+<div class="link-box-category">
+    <a class="category-link-menu" routerLink="feature" routerLinkActive="active-link-category">Feature</a>
+    <a class="category-link-menu" routerLink="colors" routerLinkActive="active-link-category">Colors</a>
+</div>
+
+<router-outlet></router-outlet>

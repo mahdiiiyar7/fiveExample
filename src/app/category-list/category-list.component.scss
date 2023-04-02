@@ -1,0 +1,51 @@
+h1{
+    margin-bottom: 2rem;
+}
+
+.categoryListAll{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.active-link-category{
+    border-bottom: 2px solid purple !important;
+}
+
+.link-box-category{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    justify-content: flex-start;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+.category-link-menu{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #ccc;
+
+    &:hover{
+        border-color: red;
+    }
+}
+
+.listAllCategory{
+    width: 50%;
+    margin-bottom: 3rem;
+
+    ul{
+        width: 30%;
+        max-height: 300px;
+        overflow-y: auto;
+        
+        li{
+            list-style-type: none;
+            color: black;
+        }
+    }
+}

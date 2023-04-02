@@ -1,0 +1,94 @@
+<div class="w-100 container-fluid">
+    <div class="w-100 d-flex flex-row justify-content-between gap-3">
+        <div class="w-50 p-5">
+            <div class="card-header mb-5">Submit Your Information:</div>
+            <div class="card-body">
+                <form [formGroup]="customerForm" class="form-group" (ngSubmit)="save()">
+                    <div class="mb-3">
+                      <label for="exampleInputFirstName1" class="form-label">First Name:</label>
+                      <input type="text" class="form-control" id="exampleInputFirstName1" name="firstName" formControlName="firstName">
+                      <div *ngIf="customerForm.get('firstName')?.touched && customerForm.get('firstName')?.invalid">
+                        <span class="is-invalid" *ngIf="customerForm.get('firstName')?.hasError('required')">First Name is required !</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputLastName1" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="exampleInputLastName1" name="lastName" formControlName="lastName">
+                        <div *ngIf="customerForm.get('lastName')?.touched && customerForm.get('lastName')?.invalid">
+                            <span class="is-invalid" *ngIf="customerForm.get('lastName')?.hasError('required')">Last Name is required !</span>
+                            <span class="is-invalid" *ngIf="customerForm.get('lastName')?.hasError('maxlength')">Last Name must not have Maximum 30 Charactears !</span>
+                            <span class="is-invalid" *ngIf="customerForm.get('lastName')?.hasError('minlength')">Last Name must have least 3 Charactears !</span>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="exampleInputEmail1" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" formControlName="email">
+                        <div *ngIf="customerForm.get('email')?.touched && customerForm.get('email')?.invalid">
+                            <span class="is-invalid" *ngIf="customerForm.get('email')?.hasError('required')">Email is required !</span>
+                            <span class="is-invalid" *ngIf="customerForm.get('email')?.hasError('pattern')">Pattern of email is incorrect !</span>
+                        </div>
+                    </div>
+
+                    <fieldset>
+                        <legend>Enter Your Account Data in the form:</legend>
+                        <div class="form-group" formGroupName="accountInfoForm">
+                            <div class="mb-3">
+                                <label for="exampleInputAccountTitle1" class="form-label">Account Title:</label>
+                                <input type="text" class="form-control" id="exampleInputAccountTitle1" name="accountTitle" formControlName="accountTitle">
+                                <div *ngIf="accountInfoForm?.get('accountTitle')?.touched && accountInfoForm?.get('accountTitle')?.invalid">
+                                  <span class="is-invalid" *ngIf="accountInfoForm?.get('accountTitle')?.hasError('required')">Account Title is required !</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputAccountNumber1" class="form-label">Account Number:</label>
+                                <input type="text" class="form-control" id="exampleInputAccountNumber1" name="accountNumber" formControlName="accountNumber">
+                                <div *ngIf="accountInfoForm?.get('accountNumber')?.touched && accountInfoForm?.get('accountNumber')?.invalid">
+                                  <span class="is-invalid" *ngIf="accountInfoForm?.get('accountNumber')?.hasError('required')">Account Number is required !</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-5">
+                                <label for="exampleInputSheba1" class="form-label">Sheba:</label>
+                                <input type="text" class="form-control" id="exampleInputSheba1" name="shebaNumber" formControlName="shebaNumber">
+                                <div *ngIf="accountInfoForm?.get('shebaNumber')?.touched && accountInfoForm?.get('shebaNumber')?.invalid">
+                                  <span class="is-invalid" *ngIf="accountInfoForm?.get('shebaNumber')?.hasError('required')">Sheba is required !</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Write Your Address List:</legend>
+                        <div formArrayName="addressList">
+                            <div *ngFor="let item of addressList.controls; let i =index">
+                                <div class="form-group" [formGroupName]="i">
+                                    <div class="mb-3">
+                                        <label for="typeAddress">Type:</label>
+                                        <select class="form-select" id="typeAddress" formControlName="type">
+                                            <option disabled>Choose One Items</option>
+                                            <option>Home</option>
+                                            <option>Work</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="textAddress">Address:</label>
+                                        <textarea class="form-control" id="textAddress" rows="3" formControlName="address"></textarea>
+                                    </div>
+
+                                    <div class="d-flex flex-row gap-3 justify-content-start mb-5">
+                                        <button class="btn btn-warning" (click)="addAddressList($event)">Add Address</button>
+                                        <button class="btn btn-warning" (click)="removeAddressList($event , i)">Remove Address</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary" [disabled]="customerForm.invalid">Submit</button>
+                  </form>
+            </div>
+        </div>
+        
+    </div>
+</div>

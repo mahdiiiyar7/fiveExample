@@ -1,0 +1,7 @@
+<div class="box-product">
+    <h3>{{ mahdiyar.title }}</h3>
+    <a [routerLink]="['/products', mahdiyar.id]">View Info</a>
+    <a [routerLink]="['/products/info']" [queryParams]="{id:mahdiyar.id , title: mahdiyar.title}">View Info With Query</a>
+    <a (click)="remove(mahdiyar.id)">Remove ID</a>
+    <!-- <button (click)="goToViewInfo()">View Info With Query Navigate</button> -->
+</div>

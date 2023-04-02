@@ -1,0 +1,23 @@
+<h1>Customer List Info</h1>
+
+<div class="customer-info">
+    <div class="input-name">
+        <label for="fname">First Name:</label>
+        <input #firstName id="fname" type="text">
+    </div>
+    <div class="textAddress">
+        <label for="addressLabel">Address (One Way Binding):</label>
+        <textarea #address id="addressLabel">{{ addressInput }}</textarea>
+        <span>{{ addressInput }}</span>
+    </div>
+
+    <div class="textAddress">
+        <label for="addressLabel">Address (Two Way Binding):</label>
+        <textarea #address id="addressLabel" [(ngModel)]="addressInput"></textarea>
+        <span>{{ addressInput }}</span>
+    </div>
+
+    <div class="btnSave">
+        <button (click)="saveInfo()">Save Info !</button>
+    </div>
+</div>

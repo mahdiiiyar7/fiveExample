@@ -1,0 +1,23 @@
+.box-product{
+    border:  2px solid rgb(136, 136, 136);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 20px 35px;
+    border-radius: 15px;
+
+    a{
+        text-decoration: none;
+        color: white;
+        background-color: blue;
+        padding: 10px 20px;
+        border-radius: 10px;
+
+        &:hover{
+            color: black;
+            background-color: aqua;
+        }
+    }
+}
